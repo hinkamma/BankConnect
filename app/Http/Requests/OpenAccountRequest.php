@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
+
+class OpenAccountRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return $this->user()!=null ;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            "type"=> "required|in:courant,pro,epagne"
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "type.in","type.required"=>"le numéro de compte ne peut etre que courant, pro, epargne"
+        ];
+    }
+}
