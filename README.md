@@ -155,3 +155,51 @@ Content-Type: application/json
 
 
 ## Structure du projet
+
+app/
+    Http/
+        Controllers/
+            Api/
+                AuthController.php
+                AccountController.php
+                OperationBankController.php
+             Requests/
+                RegisterRequest.php
+                LoginRequest.php
+                DepositeRequest.php
+            Resources/
+                AccountResource.php
+                TransactionResource.php
+    Models/
+        User.php
+        Account.php
+        Transaction.php
+database/
+    migrations/
+    create_users_table.php
+    create_accounts_table.php
+    create_transactions_table.php
+routes/
+    api.php
+
+---
+
+## Règles métier
+
+- Le solde d'un compte ne peut pas être négatif
+- Un compte bloqué ne peut pas effectuer de transactions
+- Un virement ne peut se faire qu'entre comptes actifs
+- Montant minimum d'une transaction : **100 XAF**
+- Les tokens expirent après **24 heures**
+- Maximum **60 requêtes par minute** par utilisateur
+
+---
+
+## Auteur
+
+**Hinkamma Freddy Roland**
+Étudiant en Master 1 — Développement d'Applications a l'université de douala
+
+## Licence
+
+Ce projet est développé à des fins académiques et professionnelles.
